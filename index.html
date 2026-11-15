@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#6d55d9" />
+  <title>StudySync — Student Study Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="StudySync home">
+        <span class="brand-mark"><span></span><span></span><span></span></span>
+        <span>Study<span class="brand-light">Sync</span></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="nav-menu" aria-label="Main navigation">
+        <button class="nav-link active" data-view="dashboard"><span class="nav-icon">▦</span>Dashboard</button>
+        <button class="nav-link" data-view="tasks"><span class="nav-icon">☷</span>My Tasks <span class="nav-count" id="navTaskCount">5</span></button>
+        <button class="nav-link" data-view="insights"><span class="nav-icon">▥</span>Progress Insights</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="tip-card">
+          <div class="tip-spark">✦</div>
+          <strong>Small steps add up.</strong>
+          <p>Stay consistent and make every study session count.</p>
+          <div class="tip-progress"><span></span></div>
+          <small>Your weekly focus journey</small>
+        </div>
+        <div class="profile">
+          <div class="avatar">DB</div>
+          <div><strong>Divya Bharathi</strong><small>Student account</small></div>
+          <span class="profile-dots">•••</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Toggle menu">☰</button>
+        <div class="breadcrumb">Workspace <span>/</span> <strong id="crumb">Dashboard</strong></div>
+        <div class="top-actions">
+          <div class="date-chip"><span>◷</span><span id="todayDate">Today</span></div>
+          <button class="icon-button" title="Notifications" aria-label="Notifications">♧<i></i></button>
+          <div class="avatar top-avatar">DB</div>
+        </div>
+      </header>
+
+      <section class="view active-view" id="dashboardView">
+        <div class="welcome-row">
+          <div>
+            <div class="eyebrow">SUNDAY, NOVEMBER 15, 2026</div>
+            <h1>Good morning, Divya <span class="wave">✦</span></h1>
+            <p class="muted">A little progress each day adds up to big results. Let's make today count.</p>
+          </div>
+          <button class="primary-button" data-open-add>＋ Add new task</button>
+        </div>
+
+        <div class="stat-grid">
+          <article class="stat-card">
+            <div class="stat-top"><span>Total tasks</span><span class="stat-icon lavender">▤</span></div>
+            <div class="stat-value" id="totalTasks">12</div>
+            <div class="stat-foot"><span class="trend positive">↗ 12%</span> <span>vs. last week</span></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span>Completed</span><span class="stat-icon mint">✓</span></div>
+            <div class="stat-value" id="completedTasks">8</div>
+            <div class="stat-foot"><span class="trend positive">↗ 8%</span> <span>great work!</span></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span>Pending</span><span class="stat-icon peach">◷</span></div>
+            <div class="stat-value" id="pendingTasks">4</div>
+            <div class="stat-foot"><span class="trend neutral">On track</span> <span>keep it going</span></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span>Focus hours</span><span class="stat-icon blue">◉</span></div>
+            <div class="stat-value">24.5<span class="value-unit">h</span></div>
+            <div class="stat-foot"><span class="trend positive">↗ 2.5h</span> <span>this week</span></div>
+          </article>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel progress-panel">
+            <div class="panel-heading"><div><h2>Daily progress</h2><p class="muted">Your productivity at a glance</p></div><span class="soft-pill">Today</span></div>
+            <div class="daily-progress">
+              <div class="ring-wrap"><div class="progress-ring"><div class="ring-inner"><strong id="dailyPercent">68%</strong><small>Completed</small></div></div></div>
+              <div class="progress-details">
+                <div class="progress-line"><span class="legend-dot purple-dot"></span><div><strong id="dailyDone">8 tasks</strong><small>Completed tasks</small></div></div>
+                <div class="progress-line"><span class="legend-dot pale-dot"></span><div><strong id="dailyLeft">4 tasks</strong><small>Remaining tasks</small></div></div>
+                <div class="progress-note">You're doing great! Keep your momentum going.</div>
+              </div>
+            </div>
+          </article>
+          <article class="panel weekly-panel">
+            <div class="panel-heading"><div><h2>Weekly activity</h2><p class="muted">Your focus time this week</p></div><span class="soft-pill">This week⌄</span></div>
+            <div class="chart-summary"><strong>24.5h</strong><span class="trend positive">↗ 18.4%</span></div>
+            <div class="bar-chart" aria-label="Weekly focus hours chart">
+              <div class="bar-column"><div class="bar" style="height:48%"></div><small>Mon</small></div>
+              <div class="bar-column"><div class="bar" style="height:72%"></div><small>Tue</small></div>
+              <div class="bar-column"><div class="bar" style="height:57%"></div><small>Wed</small></div>
+              <div class="bar-column"><div class="bar" style="height:88%"></div><small>Thu</small></div>
+              <div class="bar-column"><div class="bar" style="height:66%"></div><small>Fri</small></div>
+              <div class="bar-column"><div class="bar today-bar" style="height:42%"></div><small>Sat</small></div>
+              <div class="bar-column"><div class="bar future-bar" style="height:25%"></div><small>Sun</small></div>
+            </div>
+          </article>
+        </div>
+
+        <article class="panel task-panel">
+          <div class="panel-heading"><div><h2>Upcoming tasks</h2><p class="muted">Stay ahead of your deadlines</p></div><button class="text-button" data-view="tasks">View all tasks →</button></div>
+          <div class="task-list compact-list" id="dashboardTaskList"></div>
+        </article>
+      </section>
+
+      <section class="view" id="tasksView">
+        <div class="page-heading">
+          <div><div class="eyebrow">STAY ORGANIZED</div><h1>My Tasks</h1><p class="muted">Plan your work, prioritize what matters and get things done.</p></div>
+          <button class="primary-button" data-open-add>＋ Add new task</button>
+        </div>
+        <div class="task-toolbar">
+          <label class="search-box"><span>⌕</span><input id="taskSearch" type="search" placeholder="Search tasks..." /></label>
+          <select id="categoryFilter" aria-label="Filter by category"><option value="all">All categories</option><option>Study</option><option>Assignment</option><option>Project</option><option>Personal</option></select>
+          <select id="statusFilter" aria-label="Filter by status"><option value="all">All status</option><option value="pending">Pending</option><option value="completed">Completed</option></select>
+        </div>
+        <div class="task-summary-row"><span id="taskResultsLabel">All tasks <strong>5</strong></span><span class="muted">Select the circle to mark a task complete</span></div>
+        <article class="panel all-tasks-panel"><div class="task-list" id="allTaskList"></div></article>
+      </section>
+
+      <section class="view" id="insightsView">
+        <div class="page-heading"><div><div class="eyebrow">YOUR GROWTH, VISUALIZED</div><h1>Progress Insights</h1><p class="muted">Understand your habits and celebrate your consistency.</p></div><span class="soft-pill">Last 7 days⌄</span></div>
+        <div class="insight-stats">
+          <article class="insight-card"><span class="insight-icon lavender">✓</span><small>Task completion</small><strong id="insightCompletion">68%</strong><span class="trend positive">↗ 8.2% this week</span></article>
+          <article class="insight-card"><span class="insight-icon mint">◷</span><small>Focus time</small><strong>24.5h</strong><span class="trend positive">↗ 2.5h this week</span></article>
+          <article class="insight-card"><span class="insight-icon peach">♨</span><small>Study streak</small><strong>6 days</strong><span class="trend positive">Personal best: 9 days</span></article>
+        </div>
+        <div class="dashboard-grid insights-grid">
+          <article class="panel">
+            <div class="panel-heading"><div><h2>Weekly productivity</h2><p class="muted">Hours spent focusing each day</p></div></div>
+            <div class="chart-summary"><strong>24.5 hours</strong><span class="trend positive">+18.4%</span></div>
+            <div class="bar-chart large-chart">
+              <div class="bar-column"><div class="bar" style="height:48%"></div><small>Mon</small></div><div class="bar-column"><div class="bar" style="height:72%"></div><small>Tue</small></div><div class="bar-column"><div class="bar" style="height:57%"></div><small>Wed</small></div><div class="bar-column"><div class="bar" style="height:88%"></div><small>Thu</small></div><div class="bar-column"><div class="bar" style="height:66%"></div><small>Fri</small></div><div class="bar-column"><div class="bar today-bar" style="height:42%"></div><small>Sat</small></div><div class="bar-column"><div class="bar future-bar" style="height:25%"></div><small>Sun</small></div>
+            </div>
+          </article>
+          <article class="panel category-panel">
+            <div class="panel-heading"><div><h2>Tasks by category</h2><p class="muted">Where your time goes</p></div></div>
+            <div class="category-chart"><div class="donut"><div class="donut-center"><strong>12</strong><small>Total tasks</small></div></div></div>
+            <div class="category-legend"><div><span class="legend-dot purple-dot"></span>Study <strong>45%</strong></div><div><span class="legend-dot blue-dot"></span>Assignments <strong>30%</strong></div><div><span class="legend-dot peach-dot"></span>Projects <strong>15%</strong></div><div><span class="legend-dot pale-dot"></span>Personal <strong>10%</strong></div></div>
+          </article>
+        </div>
+        <article class="panel goal-panel"><div class="goal-icon">✦</div><div class="goal-copy"><h2>Daily focus goal</h2><p class="muted">You're building a strong learning habit. Keep showing up for your goals.</p><div class="goal-track"><span></span></div><small>2.5 of 3 focused hours completed today</small></div><div class="goal-number">83%<small>of daily goal</small></div></article>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="taskModal" aria-hidden="true">
+    <form class="task-modal" id="taskForm">
+      <div class="modal-heading"><div><div class="eyebrow">MAKE A PLAN</div><h2>Add a new task</h2></div><button type="button" class="close-modal" id="closeModal" aria-label="Close">×</button></div>
+      <label>Task title<input id="newTaskTitle" type="text" placeholder="e.g. Revise Data Structures" required maxlength="70"></label>
+      <div class="form-two"><label>Category<select id="newTaskCategory"><option>Study</option><option>Assignment</option><option>Project</option><option>Personal</option></select></label><label>Due date<input id="newTaskDate" type="date" required></label></div>
+      <label>Priority<select id="newTaskPriority"><option>Medium</option><option>High</option><option>Low</option></select></label>
+      <div class="modal-actions"><button type="button" class="secondary-button" id="cancelModal">Cancel</button><button class="primary-button" type="submit">Create task</button></div>
+    </form>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
